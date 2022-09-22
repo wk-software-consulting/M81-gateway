@@ -16,6 +16,10 @@ export class ClientProxyProvider {
       options: {
         urls: [this.cfService.get<string>('RMQ_URL')],
         queue: this.cfService.get<string>('RMQ_QUEUE'),
+        queueOptions: {
+          durable: false,
+        },
+        noAck: false,
       },
     });
   }
